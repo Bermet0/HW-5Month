@@ -4,8 +4,8 @@ from django.db import models
 class Director(models.Model):
     name = models.CharField(max_length=100)
 
-    def get_movies_count(self):
-        return f'{self.name}'
+    def __str__(self):
+        return self.name
 
 
 class Genre(models.Model):
@@ -34,7 +34,7 @@ STAR_CHOICES = (
 
 class Review(models.Model):
     text = models.TextField()
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name='reviews')
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True, blank=True)
     stars = models.IntegerField(choices=STAR_CHOICES, default=5)
 
     def __str__(self):
