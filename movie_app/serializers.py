@@ -6,8 +6,8 @@ class MovieSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movie
-        fields = '__all__'
-        # fields = 'id title genres duration'.split()
+        # fields = '__all__'
+        fields = 'id title description duration director'.split()
         # exclude = 'id'.split()
 
 
